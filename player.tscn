@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhrdphm7qt84f"]
+[gd_scene load_steps=8 format=3 uid="uid://bhrdphm7qt84f"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_eb6g0"]
 [ext_resource type="Texture2D" uid="uid://dpsuxuws3s211" path="res://icon.svg" id="1_vfpr3"]
 [ext_resource type="PackedScene" uid="uid://cu7drwrfgrtrm" path="res://Blocks/circle.tscn" id="2_ucu78"]
 [ext_resource type="PackedScene" uid="uid://cdg1cc2q2hs6o" path="res://Blocks/square.tscn" id="3_1rb6f"]
+[ext_resource type="PackedScene" uid="uid://doqrg786m17ij" path="res://bomb.tscn" id="4_sm68q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2uce"]
 
@@ -15,6 +16,8 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_eb6g0")
 blocks = Array[PackedScene]([ExtResource("3_1rb6f"), ExtResource("2_ucu78")])
+stickyBomb = ExtResource("4_sm68q")
+buildMode = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_o2uce")

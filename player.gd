@@ -2,9 +2,12 @@ extends CharacterBody2D
 
 
 @export var blocks : Array[PackedScene]
+@export var stickyBomb : PackedScene
+
+const MAX_VELOCITY = Vector2(800,800);
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var buildMode: bool = true
+@export var buildMode: bool = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -25,17 +28,20 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		velocity.x = move_toward(velocity.x, 0, SPEED/7)
+	
+	velocity = velocity.clamp(-MAX_VELOCITY, MAX_VELOCITY)
 	move_and_slide()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("action"): 
+	if event.is_action_pressed("shoot"): 
 		if buildMode:# Place Random Block 
 			fireProjectile(blocks.pick_random().instantiate())
 		else:
-			pass
-			
+			fireProjectile(stickyBomb.instantiate())
+	
+	elif event.is_action_pressed("changeMode"):
+		buildMode = !buildMode 
 
 func fireProjectile(projectile: Node):
 	var projVector = (get_global_mouse_position()-position) * 5

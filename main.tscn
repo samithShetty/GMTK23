@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx4v332lvfpb3"]
+[gd_scene load_steps=7 format=3 uid="uid://bt35uu56msj01"]
 
 [ext_resource type="Texture2D" uid="uid://dpsuxuws3s211" path="res://icon.svg" id="1_e58hg"]
 [ext_resource type="PackedScene" uid="uid://cu7drwrfgrtrm" path="res://Blocks/circle.tscn" id="2_o0mt6"]
 [ext_resource type="PackedScene" uid="uid://bhrdphm7qt84f" path="res://player.tscn" id="3_jdvtr"]
 [ext_resource type="PackedScene" uid="uid://cdg1cc2q2hs6o" path="res://Blocks/square.tscn" id="4_dtdxu"]
+[ext_resource type="PackedScene" uid="uid://doqrg786m17ij" path="res://bomb.tscn" id="5_su5un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt7sc"]
 
@@ -44,3 +45,6 @@ position = Vector2(-27, -117)
 
 [node name="Block5" parent="." instance=ExtResource("2_o0mt6")]
 position = Vector2(21, -107)
+
+[node name="bomb" parent="Block5" instance=ExtResource("5_su5un")]
+position = Vector2(10, -8)
