@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhrdphm7qt84f"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_eb6g0"]
+[ext_resource type="Texture2D" uid="uid://dpsuxuws3s211" path="res://icon.svg" id="1_vfpr3"]
+[ext_resource type="PackedScene" uid="uid://cu7drwrfgrtrm" path="res://Blocks/circle.tscn" id="2_ucu78"]
+[ext_resource type="PackedScene" uid="uid://cdg1cc2q2hs6o" path="res://Blocks/square.tscn" id="3_1rb6f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2uce"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0r3wh"]
+blend_mode = 3
+
+[node name="player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_eb6g0")
+blocks = Array[PackedScene]([ExtResource("3_1rb6f"), ExtResource("2_ucu78")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_o2uce")
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_0r3wh")
+position = Vector2(0, -0.499999)
+scale = Vector2(0.171875, 0.242188)
+texture = ExtResource("1_vfpr3")
