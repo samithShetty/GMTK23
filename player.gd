@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var blocks : Array[PackedScene]
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+var buildMode: bool = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -29,8 +30,15 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("build"): # Place Random Block 
-		var block = blocks.pick_random().instantiate()
-		block.position = get_global_mouse_position()
-		add_sibling(block)
-		print(get_global_mouse_position() - position)
+	if event.is_action_pressed("action"): 
+		if buildMode:# Place Random Block 
+			fireProjectile(blocks.pick_random().instantiate())
+		else:
+			pass
+			
+
+func fireProjectile(projectile: Node):
+	var projVector = (get_global_mouse_position()-position) * 5
+	projectile.position = position + projVector.normalized() * 30
+	projectile.get_node("Block").apply_central_impulse(projVector);
+	add_sibling(projectile)

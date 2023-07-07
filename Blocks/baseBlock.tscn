@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://crs34hw1mkt4b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xg1xx"]
-bounce = 0.4
+bounce = 0.2
 
 [node name="Block" type="RigidBody2D"]
 collision_layer = 2
