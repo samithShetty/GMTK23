@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2dbbxs1k6x1a"]
+
+[ext_resource type="Script" path="res://UI/GUI.gd" id="1_31b5l"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_31b5l")
+
+[node name="Timer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 547.0
+offset_right = -547.0
+offset_bottom = -576.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "60"
+horizontal_alignment = 1
+
+[node name="Money" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.882
+anchor_right = 1.0
+anchor_bottom = 0.133
+offset_left = 67.936
+offset_bottom = -0.183998
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 60
+text = "$100"
+horizontal_alignment = 1

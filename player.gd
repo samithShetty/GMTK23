@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@export var game_controller : Node2D
 @export var blocks : Array[PackedScene]
 @export var dynamite : PackedScene
 
@@ -36,18 +36,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("shoot"): 
-		if buildMode: # Place Random Block 
-			var block = blocks[item_index].instantiate()
-			money -= block.get_child(0).cost
-			print(money)
-			fireProjectile(block)
-		else: # Throw Dynamite
-			var bomb = dynamite.instantiate()
-			bomb.demolition.connect(_block_destroyed)
-			fireProjectile(bomb)
-	
-	elif event.is_action_pressed("changeMode"):
+	if event.is_action_pressed("changeMode"):
 		change_mode()
 		
 	elif event.is_action_pressed("select_item_1"):
@@ -57,15 +46,25 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("select_item_3"):
 		pass
 
+func _input(event):
+	if event.is_action_pressed("shoot"): 
+		if buildMode: # Place Random Block 
+			var block = blocks[item_index].instantiate()
+			money -= block.get_child(0).cost		
+			fireProjectile(block)
+		else: # Throw Dynamite
+			var bomb = dynamite.instantiate()
+			bomb.demolition.connect(_block_destroyed)
+			fireProjectile(bomb)
+
 func fireProjectile(projectile: Node):
 	var projVector = (get_global_mouse_position()-position) * 5
 	projectile.position = position + projVector.normalized() * 30
 	projectile.get_node("Block").apply_central_impulse(projVector);
-	add_sibling(projectile)
+	game_controller.add_child(projectile)
 	
 func change_mode():
 		buildMode = !buildMode 
 	
-func _block_destroyed(block):
+func _block_destroyed(block: Block):
 	money += block.cost
-	print(money)

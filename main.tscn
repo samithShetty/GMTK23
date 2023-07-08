@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn8h44s1w4fs0"]
+[gd_scene load_steps=6 format=3 uid="uid://bn8h44s1w4fs0"]
 
-[ext_resource type="Texture2D" uid="uid://dpsuxuws3s211" path="res://icon.svg" id="1_q3ndv"]
 [ext_resource type="PackedScene" uid="uid://draxry03186ns" path="res://Player.tscn" id="3_ryfqc"]
+[ext_resource type="PackedScene" uid="uid://c2dbbxs1k6x1a" path="res://UI/GUI.tscn" id="4_4ador"]
+[ext_resource type="PackedScene" uid="uid://b63rf2nosxo0e" path="res://Blocks/Square.tscn" id="4_lmugl"]
 [ext_resource type="PackedScene" uid="uid://bxy61acehrw8l" path="res://GameController.tscn" id="6_t5duv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt7sc"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -14,20 +15,78 @@
 position = Vector2(5.68434e-14, -1.13687e-13)
 scale = Vector2(20, 2)
 shape = SubResource("RectangleShape2D_mt7sc")
+debug_color = Color(0.694118, 0.494118, 0, 0.419608)
 
-[node name="Icon" type="Sprite2D" parent="Floor/CollisionShape2D"]
-position = Vector2(7.15256e-07, -1.90735e-06)
-scale = Vector2(0.15625, 0.15625)
-texture = ExtResource("1_q3ndv")
+[node name="Wall2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(-190, -120)
+rotation = 1.5708
+scale = Vector2(10, 1)
+shape = SubResource("RectangleShape2D_mt7sc")
+debug_color = Color(0.694118, 0.494118, 0, 0.419608)
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2(190, -120)
+rotation = 1.5708
+scale = Vector2(10, 1)
+shape = SubResource("RectangleShape2D_mt7sc")
+debug_color = Color(0.694118, 0.494118, 0, 0.419608)
 
 [node name="GameController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_t5duv")]
-player = NodePath("player")
+player = NodePath("../player")
 
-[node name="player" parent="GameController" instance=ExtResource("3_ryfqc")]
+[node name="Square" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(-1, -30)
+
+[node name="Square2" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(19, -30)
+
+[node name="Square3" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(-21, -30)
+
+[node name="Square4" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(-1, -50)
+
+[node name="Square5" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(19, -50)
+
+[node name="Square6" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(-21, -50)
+
+[node name="Square7" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(-1, -70)
+
+[node name="Square8" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(19, -70)
+
+[node name="Square9" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(-21, -70)
+
+[node name="Square10" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(-1, -90)
+
+[node name="Square11" parent="GameController" instance=ExtResource("4_lmugl")]
+position = Vector2(19, -90)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" node_paths=PackedStringArray("game_controller", "player") instance=ExtResource("4_4ador")]
+game_controller = NodePath("../../GameController")
+player = NodePath("../../player")
+metadata/_edit_use_anchors_ = true
+
+[node name="player" parent="." node_paths=PackedStringArray("game_controller") instance=ExtResource("3_ryfqc")]
 position = Vector2(59, -61)
+game_controller = NodePath("../GameController")
 
-[node name="Camera2D" type="Camera2D" parent="GameController/player"]
+[node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, -0.00799942)
 zoom = Vector2(4, 4)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Square12" parent="." instance=ExtResource("4_lmugl")]
+position = Vector2(-21, -90)

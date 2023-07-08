@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxy61acehrw8l"]
+[gd_scene load_steps=3 format=3 uid="uid://bxy61acehrw8l"]
 
 [ext_resource type="Script" path="res://GameController.gd" id="1_bnuev"]
+[ext_resource type="PackedScene" uid="uid://nk43ob2gfbv2" path="res://Pick Ups/target.tscn" id="2_41das"]
 
 [node name="GameController" type="Node2D"]
 script = ExtResource("1_bnuev")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Target" parent="." instance=ExtResource("2_41das")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

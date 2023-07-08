@@ -28,5 +28,5 @@ func _unhandled_input(event):
 func _on_collision(body):
 	if body is RigidBody2D:
 		emit_signal("demolition",body)
-		body.queue_free()
+		body.explode()
 	explode()

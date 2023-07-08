@@ -65,6 +65,13 @@ select_item_3={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Walls/Floors"
+2d_physics/layer_2="Construction Blocks"
+2d_physics/layer_3="Player"
+2d_physics/layer_4="Projectiles"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

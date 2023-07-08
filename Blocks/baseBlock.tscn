@@ -3,12 +3,14 @@
 [ext_resource type="Script" path="res://Blocks/Block.gd" id="1_olc8w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xg1xx"]
-bounce = 0.2
+rough = true
+absorbent = true
 
 [node name="Block" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_xg1xx")
+linear_damp = 2.285
 angular_damp = 1.0
 script = ExtResource("1_olc8w")
 
