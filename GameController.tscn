@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bxy61acehrw8l"]
+[gd_scene load_steps=2 format=3 uid="uid://bxy61acehrw8l"]
 
-[node name="game_controller" type="Node2D"]
+[ext_resource type="Script" path="res://GameController.gd" id="1_bnuev"]
+
+[node name="GameController" type="Node2D"]
+script = ExtResource("1_bnuev")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://1mojl5kesimd"]
+[gd_scene load_steps=5 format=3 uid="uid://bhj8u0nncvftp"]
 
-[ext_resource type="Script" path="res://Bomb.gd" id="1_sjn33"]
-[ext_resource type="PackedScene" uid="uid://crs34hw1mkt4b" path="res://Blocks/baseBlock.tscn" id="2_jr1q8"]
+[ext_resource type="Script" path="res://Projectiles/Bomb.gd" id="1_88kfo"]
+[ext_resource type="PackedScene" uid="uid://crs34hw1mkt4b" path="res://Blocks/BaseBlock.tscn" id="2_hgsmi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_st2nx"]
 radius = 4.0
@@ -10,9 +10,9 @@ radius = 4.0
 radius = 30.0
 
 [node name="bomb" type="Node2D"]
-script = ExtResource("1_sjn33")
+script = ExtResource("1_88kfo")
 
-[node name="Block" parent="." instance=ExtResource("2_jr1q8")]
+[node name="Block" parent="." instance=ExtResource("2_hgsmi")]
 collision_layer = 8
 collision_mask = 3
 max_contacts_reported = 1

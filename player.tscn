@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dpsuxuws3s211" path="res://icon.svg" id="1_vfpr3"]
 [ext_resource type="Script" path="res://Player.gd" id="1_yrtsu"]
-[ext_resource type="PackedScene" path="res://Blocks/Circle.tscn" id="2_ucu78"]
-[ext_resource type="PackedScene" path="res://Blocks/Square.tscn" id="3_1rb6f"]
-[ext_resource type="PackedScene" uid="uid://1mojl5kesimd" path="res://Bomb.tscn" id="4_sm68q"]
+[ext_resource type="PackedScene" uid="uid://o0vhrghluj1s" path="res://Blocks/Circle.tscn" id="2_ucu78"]
+[ext_resource type="PackedScene" uid="uid://b63rf2nosxo0e" path="res://Blocks/Square.tscn" id="3_1rb6f"]
+[ext_resource type="PackedScene" uid="uid://bhj8u0nncvftp" path="res://Projectiles/Bomb.tscn" id="4_t0c1b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2uce"]
 
@@ -16,8 +16,7 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_yrtsu")
 blocks = Array[PackedScene]([ExtResource("3_1rb6f"), ExtResource("2_ucu78")])
-stickyBomb = ExtResource("4_sm68q")
-buildMode = false
+dynamite = ExtResource("4_t0c1b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_o2uce")

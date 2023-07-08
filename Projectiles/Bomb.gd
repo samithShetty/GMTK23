@@ -1,4 +1,7 @@
+class_name Bomb
 extends Node2D
+
+signal demolition(block:Block)
 
 @export var explosion_force = 200
 @onready var explosion = $Block/ShapeCast2D
@@ -24,5 +27,6 @@ func _unhandled_input(event):
 
 func _on_collision(body):
 	if body is RigidBody2D:
+		emit_signal("demolition",body)
 		body.queue_free()
 	explode()

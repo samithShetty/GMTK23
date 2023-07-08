@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://o0vhrghluj1s"]
 
 [ext_resource type="PackedScene" uid="uid://crs34hw1mkt4b" path="res://Blocks/BaseBlock.tscn" id="1_x7n2v"]
 
@@ -7,6 +7,7 @@
 [node name="Circle" type="Node2D"]
 
 [node name="Block" parent="." instance=ExtResource("1_x7n2v")]
+cost = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
 shape = SubResource("CircleShape2D_f0dqv")
