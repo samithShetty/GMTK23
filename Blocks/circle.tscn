@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu7drwrfgrtrm"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://crs34hw1mkt4b" path="res://Blocks/baseBlock.tscn" id="1_x7n2v"]
+[ext_resource type="PackedScene" uid="uid://crs34hw1mkt4b" path="res://Blocks/BaseBlock.tscn" id="1_x7n2v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f0dqv"]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdg1cc2q2hs6o"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://crs34hw1mkt4b" path="res://Blocks/baseBlock.tscn" id="1_4f5ad"]
+[ext_resource type="PackedScene" uid="uid://crs34hw1mkt4b" path="res://Blocks/BaseBlock.tscn" id="1_4f5ad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyksq"]
 

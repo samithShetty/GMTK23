@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://doqrg786m17ij"]
+[gd_scene load_steps=5 format=3 uid="uid://1mojl5kesimd"]
 
-[ext_resource type="Script" path="res://bomb.gd" id="1_8j8ss"]
+[ext_resource type="Script" path="res://Bomb.gd" id="1_sjn33"]
 [ext_resource type="PackedScene" uid="uid://crs34hw1mkt4b" path="res://Blocks/baseBlock.tscn" id="2_jr1q8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_st2nx"]
@@ -10,7 +10,7 @@ radius = 4.0
 radius = 30.0
 
 [node name="bomb" type="Node2D"]
-script = ExtResource("1_8j8ss")
+script = ExtResource("1_sjn33")
 
 [node name="Block" parent="." instance=ExtResource("2_jr1q8")]
 collision_layer = 8
