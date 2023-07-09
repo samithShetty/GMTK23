@@ -3,12 +3,11 @@ extends Node2D
 
 @export var player: Node
 @onready var timer = $Timer
-@onready var target = $Target
 
 var money: int = 0
 var score : int = 0
 
-@export var timer_length := 5
+@export var timer_length := 15
 var goal_height: float = 0.
 var current_high_point := Vector2.ZERO
 var best_height: float = 0.
@@ -23,11 +22,10 @@ func _on_timer_timeout():
 		if -current_high_point.y < goal_height: # Lose Condition
 			end_game()
 		else:
-			target.position = current_high_point + Vector2.UP*30
-			target.activate()
+			pass
 			
 	else: # Demolition Mode
-		if player.money < 0 or not target.collected: # Lose Condition
+		if player.money < 0: # Lose Condition
 			end_game() # Player should explode?
 		else:
 			goal_height = 10

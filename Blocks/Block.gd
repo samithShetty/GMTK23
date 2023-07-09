@@ -18,7 +18,8 @@ func explode(): # Hit directly with dynamite
 	parentBlock.queue_free() 
 	
 func _on_sleeping_state_changed(): 
-	if(sleeping): # Block has come to rest
-		emit_signal("block_placed", parentBlock.name, global_position)
-	else: # Stationary block was moved/destroyed
-		emit_signal("block_moved", parentBlock.name)
+	pass
+#	if(sleeping): # Block has come to rest
+		#emit_signal("block_placed", parentBlock.name, global_position)
+#	else: # Stationary block was moved/destroyed
+		#emit_signal("block_moved", parentBlock.name)

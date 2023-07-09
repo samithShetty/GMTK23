@@ -4,8 +4,10 @@ extends CharacterBody2D
 @export var blocks : Array[PackedScene]
 @export var dynamite : PackedScene
 
+@onready var sprite = $AnimatedSprite2D
+
 const MAX_VELOCITY = Vector2(800,800);
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
 var buildMode := true
@@ -31,6 +33,15 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED/7)
+	if direction == 0.:
+		sprite.play("construction_idle" if buildMode else "demolition_idle")
+	else:
+		sprite.play("construction_run" if buildMode else "demolition_run")
+		if direction > 0:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
+			
 	
 	velocity = velocity.clamp(-MAX_VELOCITY, MAX_VELOCITY)
 	move_and_slide()
